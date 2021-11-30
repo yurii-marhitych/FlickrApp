@@ -11,6 +11,7 @@ class Downloader {
     static let errorDomain = "DownloaderDomain"
     static let shared = Downloader()
     
+    // create a session with configurations
     private lazy var session: URLSession = {
         let config = URLSessionConfiguration.ephemeral
         config.allowsExpensiveNetworkAccess = false
@@ -18,6 +19,7 @@ class Downloader {
         return URLSession(configuration: config)
     }()
     
+    // MARK: - Main Methods
     @discardableResult
     func download(from url: URL?, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask? {
         guard let url = url else {

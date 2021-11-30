@@ -9,7 +9,7 @@ import Foundation
 
 struct APIRequest {
     private let base = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
-    private let API_KEY = ""
+    private let API_KEY = "9e8b4769cbd9dd111adbbf2bc3ff46cc"
     
     let url: URL?
     private(set) var text = ""
@@ -20,7 +20,7 @@ struct APIRequest {
     init(text: String, page: Int) {
         self.text = text
         
-        let stringURL = base + "&api_key=\(API_KEY)&text=\(text)&radius=1&per_page=100&page=\(page)&format=json&nojsoncallback=1"
+        let stringURL = base + "&api_key=\(API_KEY)&text=\(text)&radius=1&per_page=30&page=\(page)&format=json&nojsoncallback=1"
         url = URL(string: stringURL)
     }
     
@@ -28,7 +28,7 @@ struct APIRequest {
         self.latitude = latitude
         self.longitude = longitude
         
-        let stringURL = base + "&api_key=\(API_KEY)&lat=\(latitude)&lon=\(longitude)&radius=1&per_page=100&page=\(page)&format=json&nojsoncallback=1"
+        let stringURL = base + "&api_key=\(API_KEY)&lat=\(latitude)&lon=\(longitude)&radius=1&per_page=30&page=\(page)&format=json&nojsoncallback=1"
         url = URL(string: stringURL)
     }
 }
