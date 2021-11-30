@@ -34,6 +34,6 @@ extension SearchResultsViewController {
             requests.append(request)
         }
         
-        dismiss(animated: true, completion: nil)
+        navigationItem.searchController?.animationEnded(true)
     }
 }

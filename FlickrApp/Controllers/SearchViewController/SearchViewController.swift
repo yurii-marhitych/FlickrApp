@@ -24,21 +24,15 @@ class SearchViewController: GalleryViewController {
         searchController.searchResultsUpdater = searchResultsController
         searchResultsController.searchBar = searchController.searchBar
         navigationItem.searchController = searchController
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search more photos"
         searchController.definesPresentationContext = true
     }
-}
-
-// MARK: - UISearchBarDelegate
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(#function)
-        navigationItem.searchController?.searchResultsController?.dismiss(animated: true, completion: nil)
-    }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(#function)
-        navigationItem.searchController?.searchResultsController?.dismiss(animated: true, completion: nil)
+    override func loadMoreData() {
+        currentPage += 1
+        guard let text = apiRequest?.text else {
+            return
+        }
+        apiRequest = APIRequest(text: text, page: currentPage)
     }
 }

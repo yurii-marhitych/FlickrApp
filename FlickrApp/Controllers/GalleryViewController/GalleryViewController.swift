@@ -10,6 +10,9 @@ import UIKit
 class GalleryViewController: UICollectionViewController {
     var photosPerRow: CGFloat { return 3 }
     var padding: CGFloat { return 8 }
+    var currentPage = 1
+    var isLoading = false
+    var loadingView: LoadingReusableView?
     
     private let dataProvider = DataProvider()
     var photos = [Photo]() {
@@ -20,19 +23,31 @@ class GalleryViewController: UICollectionViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.register(UINib(nibName: PhotoCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhotoCell.identifier)
-        
-        let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=9e8b4769cbd9dd111adbbf2bc3ff46cc&text=Car&radius=1&per_page=20&page=1&format=json&nojsoncallback=1")
-        dataProvider.fetchPhotos(from: url) { [weak self] result in
-            switch result {
-            case .success(let photos):
-                self?.photos = photos
-            case .failure(let error):
-                print((error as NSError).domain)
+    var apiRequest: APIRequest? {
+        didSet {
+            dataProvider.fetchPhotos(from: apiRequest?.url) { [weak self] result in
+                switch result {
+                case .success(let photos):
+                    self?.photos = photos
+                case .failure(let error):
+                    print((error as NSError).domain)
+                }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        
+        // Cell registration
+        collectionView.register(UINib(nibName: PhotoCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhotoCell.identifier)
+        collectionView.register(UINib(nibName: LoadingReusableView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingReusableView.identifier)
+    }
+    
+    // required to override
+    func loadMoreData() {
     }
 }
 

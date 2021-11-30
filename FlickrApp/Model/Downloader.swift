@@ -18,10 +18,11 @@ class Downloader {
         return URLSession(configuration: config)
     }()
     
-    func download(from url: URL?, completion: @escaping (Result<Data, Error>) -> Void) {
+    @discardableResult
+    func download(from url: URL?, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask? {
         guard let url = url else {
             completion(.failure(NSError(domain: Downloader.errorDomain, code: 1, userInfo: nil)))
-            return
+            return nil
         }
         
         let task = session.dataTask(with: url) { data, response, error in
@@ -43,6 +44,7 @@ class Downloader {
             completion(.success(data))
         }
         task.resume()
+        return task
     }
     
     private init() {}

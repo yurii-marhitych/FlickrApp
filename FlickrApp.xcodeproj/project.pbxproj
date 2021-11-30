@@ -26,6 +26,9 @@
 		7C7CBD7A27567B4E003DEC04 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */; };
 		7C7CBD7D27567C5E003DEC04 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */; };
 		7C7CBD802756815D003DEC04 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */; };
+		7C7CBD8227569D96003DEC04 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD8127569D96003DEC04 /* APIRequest.swift */; };
+		7C7CBD862756A6D1003DEC04 /* LoadingReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD842756A6D1003DEC04 /* LoadingReusableView.swift */; };
+		7C7CBD872756A6D1003DEC04 /* LoadingReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7CBD852756A6D1003DEC04 /* LoadingReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		7C7CBD8127569D96003DEC04 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		7C7CBD842756A6D1003DEC04 /* LoadingReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingReusableView.swift; sourceTree = "<group>"; };
+		7C7CBD852756A6D1003DEC04 /* LoadingReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +104,9 @@
 		7C7CBD5D27566098003DEC04 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C7CBD6D27566664003DEC04 /* GalleryViewController */,
 				7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */,
 				7C7CBD7B27567C3D003DEC04 /* SearchViewController */,
-				7C7CBD6D27566664003DEC04 /* GalleryViewController */,
 				7C7CBD7527566BFC003DEC04 /* ReviewViewController.swift */,
 			);
 			path = Controllers;
@@ -109,6 +115,7 @@
 		7C7CBD5E275660A1003DEC04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C7CBD832756A6B0003DEC04 /* LoadingReusableView */,
 				7C7CBD74275667A0003DEC04 /* PhotoCell */,
 			);
 			path = Views;
@@ -117,6 +124,7 @@
 		7C7CBD5F275660A3003DEC04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C7CBD8127569D96003DEC04 /* APIRequest.swift */,
 				7C7CBD662756615E003DEC04 /* Photo */,
 				7C7CBD672756616D003DEC04 /* Downloader.swift */,
 				7C7CBD69275663F2003DEC04 /* DataProvider.swift */,
@@ -156,18 +164,19 @@
 			isa = PBXGroup;
 			children = (
 				7C7CBD7727567B3C003DEC04 /* SearchViewController.swift */,
-				7C7CBD7E27568142003DEC04 /* SearchResultsController */,
+				7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */,
+				7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
 		};
-		7C7CBD7E27568142003DEC04 /* SearchResultsController */ = {
+		7C7CBD832756A6B0003DEC04 /* LoadingReusableView */ = {
 			isa = PBXGroup;
 			children = (
-				7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */,
-				7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */,
+				7C7CBD842756A6D1003DEC04 /* LoadingReusableView.swift */,
+				7C7CBD852756A6D1003DEC04 /* LoadingReusableView.xib */,
 			);
-			path = SearchResultsController;
+			path = LoadingReusableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7CBD872756A6D1003DEC04 /* LoadingReusableView.xib in Resources */,
 				7C7CBD732756679D003DEC04 /* PhotoCell.xib in Resources */,
 				7C7CBD5627565F04003DEC04 /* LaunchScreen.storyboard in Resources */,
 				7C7CBD5327565F04003DEC04 /* Assets.xcassets in Resources */,
@@ -252,10 +262,12 @@
 				7C7CBD7827567B3C003DEC04 /* SearchViewController.swift in Sources */,
 				7C7CBD7A27567B4E003DEC04 /* NearbyViewController.swift in Sources */,
 				7C7CBD722756679D003DEC04 /* PhotoCell.swift in Sources */,
+				7C7CBD862756A6D1003DEC04 /* LoadingReusableView.swift in Sources */,
 				7C7CBD802756815D003DEC04 /* UITableViewExtensions.swift in Sources */,
 				7C7CBD7627566BFC003DEC04 /* ReviewViewController.swift in Sources */,
 				7C7CBD6C27566619003DEC04 /* GalleryViewController.swift in Sources */,
 				7C7CBD652756611D003DEC04 /* APIResponse.swift in Sources */,
+				7C7CBD8227569D96003DEC04 /* APIRequest.swift in Sources */,
 				7C7CBD4C27565F01003DEC04 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +420,8 @@
 				DEVELOPMENT_TEAM = 5CXDUTDMU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlickrApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "It needs to get your location to download nearby photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -436,6 +450,8 @@
 				DEVELOPMENT_TEAM = 5CXDUTDMU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlickrApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "It needs to get your location to download nearby photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

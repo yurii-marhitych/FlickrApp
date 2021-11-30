@@ -23,6 +23,15 @@ extension GalleryViewController {
         
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionFooter, let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingReusableView.identifier, for: indexPath) as? LoadingReusableView else {
+            return UICollectionReusableView()
+        }
+        
+        loadingView = footerView
+        return footerView
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -39,6 +48,24 @@ extension GalleryViewController {
         
         navigationController?.pushViewController(reviewController, animated: true)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == photos.count - 1 {
+            loadMoreData()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            loadingView?.activityIndicator.startAnimating()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            loadingView?.activityIndicator.stopAnimating()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -49,7 +76,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: padding, left: padding, bottom: 0, right: padding)
+        return UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

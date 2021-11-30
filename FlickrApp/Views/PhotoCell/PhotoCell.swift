@@ -9,6 +9,7 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     static let identifier = "PhotoCell"
+    var task: URLSessionTask?
     
     // MARK: - Outlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -16,6 +17,7 @@ class PhotoCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        task?.cancel()
         imageView.image = nil
     }
     
@@ -34,7 +36,7 @@ class PhotoCell: UICollectionViewCell {
         }
         
         let url = photo.url
-        Downloader.shared.download(from: url) { result in
+        task = Downloader.shared.download(from: url) { result in
             switch result {
             case .success(let data):
                 let image = UIImage(data: data)
