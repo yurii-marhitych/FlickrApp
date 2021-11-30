@@ -11,7 +11,7 @@
         <!--Nearby Photos-->
         <scene sceneID="7z1-ET-knu">
             <objects>
-                <collectionViewController id="vYX-3v-kQN" customClass="GalleryViewController" customModule="FlickrApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="vYX-3v-kQN" customClass="NearbyViewController" customModule="FlickrApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vi9-Lm-9B3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
         <!--Search Photos-->
         <scene sceneID="CsM-YV-sls">
             <objects>
-                <collectionViewController id="BIQ-yO-pyr" sceneMemberID="viewController">
+                <collectionViewController id="BIQ-yO-pyr" customClass="SearchViewController" customModule="FlickrApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="m4i-LM-HgC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,6 +115,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6x-Ns-t0I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1274" y="282"/>
+        </scene>
+        <!--Search Results View Controller-->
+        <scene sceneID="NyN-hf-Wj2">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchResultsController" id="2Dg-dq-5Iv" customClass="SearchResultsViewController" customModule="FlickrApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Uwv-IT-H9T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <inset key="separatorInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestCell" id="H5g-9t-L31">
+                                <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H5g-9t-L31" id="Fgs-bw-9WG">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWp-Cb-coR">
+                                            <rect key="frame" x="20" y="11" width="334" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rWp-Cb-coR" firstAttribute="leading" secondItem="Fgs-bw-9WG" secondAttribute="leadingMargin" id="NNR-CA-Cfb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rWp-Cb-coR" secondAttribute="bottom" id="Syn-J1-qTj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rWp-Cb-coR" secondAttribute="trailing" id="kEJ-XT-hnN"/>
+                                        <constraint firstItem="rWp-Cb-coR" firstAttribute="top" secondItem="Fgs-bw-9WG" secondAttribute="topMargin" id="ldz-9N-1C3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2Dg-dq-5Iv" id="x5C-Om-5Xt"/>
+                            <outlet property="delegate" destination="2Dg-dq-5Iv" id="izI-8R-Cd6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZW-IU-DJp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="974"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="UZL-e8-h4W">

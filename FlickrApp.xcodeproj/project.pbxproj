@@ -22,6 +22,10 @@
 		7C7CBD722756679D003DEC04 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD702756679D003DEC04 /* PhotoCell.swift */; };
 		7C7CBD732756679D003DEC04 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7CBD712756679D003DEC04 /* PhotoCell.xib */; };
 		7C7CBD7627566BFC003DEC04 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7527566BFC003DEC04 /* ReviewViewController.swift */; };
+		7C7CBD7827567B3C003DEC04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7727567B3C003DEC04 /* SearchViewController.swift */; };
+		7C7CBD7A27567B4E003DEC04 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */; };
+		7C7CBD7D27567C5E003DEC04 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */; };
+		7C7CBD802756815D003DEC04 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		7C7CBD702756679D003DEC04 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		7C7CBD712756679D003DEC04 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		7C7CBD7527566BFC003DEC04 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		7C7CBD7727567B3C003DEC04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
+		7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,8 @@
 		7C7CBD5D27566098003DEC04 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C7CBD7927567B4E003DEC04 /* NearbyViewController.swift */,
+				7C7CBD7B27567C3D003DEC04 /* SearchViewController */,
 				7C7CBD6D27566664003DEC04 /* GalleryViewController */,
 				7C7CBD7527566BFC003DEC04 /* ReviewViewController.swift */,
 			);
@@ -140,6 +150,24 @@
 				7C7CBD712756679D003DEC04 /* PhotoCell.xib */,
 			);
 			path = PhotoCell;
+			sourceTree = "<group>";
+		};
+		7C7CBD7B27567C3D003DEC04 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C7CBD7727567B3C003DEC04 /* SearchViewController.swift */,
+				7C7CBD7E27568142003DEC04 /* SearchResultsController */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		7C7CBD7E27568142003DEC04 /* SearchResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				7C7CBD7C27567C5E003DEC04 /* SearchResultsViewController.swift */,
+				7C7CBD7F2756815D003DEC04 /* UITableViewExtensions.swift */,
+			);
+			path = SearchResultsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +247,12 @@
 				7C7CBD682756616D003DEC04 /* Downloader.swift in Sources */,
 				7C7CBD6A275663F2003DEC04 /* DataProvider.swift in Sources */,
 				7C7CBD6F2756667E003DEC04 /* UICollectionViewExtensions.swift in Sources */,
+				7C7CBD7D27567C5E003DEC04 /* SearchResultsViewController.swift in Sources */,
 				7C7CBD63275660E8003DEC04 /* PhotoData.swift in Sources */,
+				7C7CBD7827567B3C003DEC04 /* SearchViewController.swift in Sources */,
+				7C7CBD7A27567B4E003DEC04 /* NearbyViewController.swift in Sources */,
 				7C7CBD722756679D003DEC04 /* PhotoCell.swift in Sources */,
+				7C7CBD802756815D003DEC04 /* UITableViewExtensions.swift in Sources */,
 				7C7CBD7627566BFC003DEC04 /* ReviewViewController.swift in Sources */,
 				7C7CBD6C27566619003DEC04 /* GalleryViewController.swift in Sources */,
 				7C7CBD652756611D003DEC04 /* APIResponse.swift in Sources */,
